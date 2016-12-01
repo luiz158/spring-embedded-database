@@ -9,7 +9,9 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import com.mkyong.model.User;
+import com.globalmart.dao.UserDao;
+import com.globalmart.dao.UserDaoImpl;
+import com.globalmart.model.User;
 
 public class UserDaoTest {
 
