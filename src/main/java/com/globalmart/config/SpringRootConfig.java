@@ -3,7 +3,6 @@ package com.globalmart.config;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
-import org.hsqldb.util.DatabaseManagerSwing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,7 +25,7 @@ public class SpringRootConfig {
 	public void startDBManager() {
 		
 		//Hsqldb - only on Debugging
-		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", "" });
+		//org.hsqldb.util.DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", "" });
 
 	}
 

@@ -1,7 +1,6 @@
 package com.globalmart.dao;
 
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -11,7 +10,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import com.globalmart.dao.ProductDao;
 import com.globalmart.dao.ProductDaoImpl;
-import com.globalmart.model.ProductCatalogue;
 
 public class UserDaoTest {
 
@@ -35,7 +33,7 @@ public class UserDaoTest {
     	ProductDaoImpl userDao = new ProductDaoImpl();
     	userDao.setNamedParameterJdbcTemplate(template);
     	
-    	ProductCatalogue user = userDao.findByName("mkyong");
+    	//ProductCatalogue user = userDao.findByName("mkyong");
   
     }
 

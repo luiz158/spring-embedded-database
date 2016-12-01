@@ -15,9 +15,9 @@ import com.globalmart.model.ProductCatalogue;
 
 @RestController
 @RequestMapping("/productCatalogue")
-public class WelcomeController {
+public class ProductController {
 
-	private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
 	@Autowired
 	ProductDao productDao;
