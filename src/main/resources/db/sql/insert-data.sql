@@ -1,3 +1,3 @@
-INSERT INTO products VALUES (1, 'gloves', 'accessories', 300);
-INSERT INTO products VALUES (2, 'towel', 'household', 150);
-INSERT INTO products VALUES (3, 'bags', 'travel', 500);
+INSERT INTO product_catalogue VALUES (1, 'gloves', 'accessories', 300);
+INSERT INTO product_catalogue VALUES (2, 'towel', 'household', 150);
+INSERT INTO product_catalogue VALUES (3, 'bags', 'travel', 500);

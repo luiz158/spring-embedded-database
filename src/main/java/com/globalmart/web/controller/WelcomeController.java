@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.globalmart.dao.ProductDao;
-import com.globalmart.model.Product;
+import com.globalmart.model.ProductCatalogue;
 
 @RestController
+@RequestMapping("/productCatalogue")
 public class WelcomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
@@ -21,20 +22,12 @@ public class WelcomeController {
 	@Autowired
 	ProductDao productDao;
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET, headers="Accept=application/json")
-	public List<Product> welcome(Model model) {
+	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET, headers="Accept=application/json")
+	public List<ProductCatalogue> welcome(Model model) {
 
-		logger.debug("mkyong");
+		logger.debug("In Controller");
 
-		//User user = userDao.findByName("mkyong");
-		
-		List<Product> products = productDao.findAll();
-
-		System.out.println(products);
-
-		model.addAttribute("user", products);
-		
-		return products;
+		return productDao.findAll();
 
 	}
 

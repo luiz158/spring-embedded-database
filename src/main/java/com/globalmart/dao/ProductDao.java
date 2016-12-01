@@ -2,12 +2,12 @@ package com.globalmart.dao;
 
 import java.util.List;
 
-import com.globalmart.model.Product;
+import com.globalmart.model.ProductCatalogue;
 
 public interface ProductDao {
 
-	Product findByName(String name);
+	ProductCatalogue findByName(String name);
 	
-	List<Product> findAll();
+	List<ProductCatalogue> findAll();
 
 }

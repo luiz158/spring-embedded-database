@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.globalmart.model.Product;
+import com.globalmart.model.ProductCatalogue;
 
 @Repository
 public class ProductDaoImpl implements ProductDao {
@@ -24,14 +24,14 @@ public class ProductDaoImpl implements ProductDao {
 	}
 	
 	@Override
-	public Product findByName(String name) {
+	public ProductCatalogue findByName(String name) {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
         params.put("name", name);
         
-		String sql = "SELECT * FROM products WHERE name=:name";
+		String sql = "SELECT * FROM product_catalogue WHERE name=:name";
 		
-        Product result = namedParameterJdbcTemplate.queryForObject(
+        ProductCatalogue result = namedParameterJdbcTemplate.queryForObject(
                     sql,
                     params,
                     new UserMapper());
@@ -41,27 +41,27 @@ public class ProductDaoImpl implements ProductDao {
 	}
 
 	@Override
-	public List<Product> findAll() {
+	public List<ProductCatalogue> findAll() {
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		
-		String sql = "SELECT * FROM products";
+		String sql = "SELECT * FROM product_catalogue";
 		
-        List<Product> result = namedParameterJdbcTemplate.query(sql, params, new UserMapper());
+        List<ProductCatalogue> result = namedParameterJdbcTemplate.query(sql, params, new UserMapper());
         
         return result;
         
 	}
 
-	private static final class UserMapper implements RowMapper<Product> {
+	private static final class UserMapper implements RowMapper<ProductCatalogue> {
 
-		public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Product product = new Product();
-			product.setId(rs.getInt("id"));
-			product.setName(rs.getString("name"));
-			product.setCategory(rs.getString("category"));
-			product.setPrice(rs.getDouble("price"));
-			return product;
+		public ProductCatalogue mapRow(ResultSet rs, int rowNum) throws SQLException {
+			ProductCatalogue productCatalogue = new ProductCatalogue();
+			productCatalogue.setProductId(rs.getInt("id"));
+			productCatalogue.setProductName(rs.getString("name"));
+			productCatalogue.setProductType(rs.getString("category"));
+			productCatalogue.setPrice(rs.getDouble("price"));
+			return productCatalogue;
 		}
 	}
 
