@@ -23,7 +23,7 @@ public class WelcomeController {
 	ProductDao productDao;
 	
 	@RequestMapping(value = "/getAllProducts", method = RequestMethod.GET, headers="Accept=application/json")
-	public List<ProductCatalogue> welcome(Model model) {
+	public List<ProductCatalogue> getAllProducts(Model model) {
 
 		logger.debug("In Controller");
 
