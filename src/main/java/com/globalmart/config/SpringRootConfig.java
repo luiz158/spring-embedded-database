@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
-@ComponentScan({ "com.mkyong" })
+@ComponentScan({ "com.globalmart" })
 @Configuration
 public class SpringRootConfig {
 
@@ -25,34 +25,10 @@ public class SpringRootConfig {
 	@PostConstruct
 	public void startDBManager() {
 		
-		//hsqldb
+		//Hsqldb
 		DatabaseManagerSwing.main(new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", "" });
 
-		//derby
-		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:derby:memory:testdb", "--user", "", "--password", "" });
-
-		//h2
-		//DatabaseManagerSwing.main(new String[] { "--url", "jdbc:h2:mem:testdb", "--user", "sa", "--password", "" });
-
 	}
-	
-	//MethodInvokingBean example
-	/*
-	@PostConstruct
-	public void startDBM() {
-		MethodInvokingBean mBean = new MethodInvokingBean();
 
-		mBean.setTargetClass(DatabaseManagerSwing.class);
-		mBean.setTargetMethod("main");
-		String[] args = new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", "" };
-		mBean.setArguments(args);
-		try {
-			mBean.prepare();
-			mBean.invoke();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}*/
 
 }

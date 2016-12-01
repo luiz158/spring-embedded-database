@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.globalmart.dao.UserDao;
-import com.globalmart.model.User;
+import com.globalmart.dao.ProductDao;
+import com.globalmart.model.Product;
 
 @Controller
 public class WelcomeController {
@@ -19,7 +19,7 @@ public class WelcomeController {
 	private static final Logger logger = LoggerFactory.getLogger(WelcomeController.class);
 
 	@Autowired
-	UserDao userDao;
+	ProductDao userDao;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(Model model) {
@@ -28,7 +28,7 @@ public class WelcomeController {
 
 		//User user = userDao.findByName("mkyong");
 		
-		List<User> users = userDao.findAll();
+		List<Product> users = userDao.findAll();
 
 		System.out.println(users);
 

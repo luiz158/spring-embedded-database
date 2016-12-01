@@ -1,4 +1,4 @@
-package com.mkyong.dao;
+package com.globalmart.dao;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -9,15 +9,15 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
-import com.globalmart.dao.UserDao;
-import com.globalmart.dao.UserDaoImpl;
-import com.globalmart.model.User;
+import com.globalmart.dao.ProductDao;
+import com.globalmart.dao.ProductDaoImpl;
+import com.globalmart.model.Product;
 
 public class UserDaoTest {
 
     private EmbeddedDatabase db;
 
-    UserDao userDao;
+    ProductDao userDao;
     
     @Before
     public void setUp() {
@@ -32,15 +32,15 @@ public class UserDaoTest {
     @Test
     public void testFindByname() {
     	NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(db);
-    	UserDaoImpl userDao = new UserDaoImpl();
+    	ProductDaoImpl userDao = new ProductDaoImpl();
     	userDao.setNamedParameterJdbcTemplate(template);
     	
-    	User user = userDao.findByName("mkyong");
+    	Product user = userDao.findByName("mkyong");
   
     	Assert.assertNotNull(user);
     	Assert.assertEquals(1, user.getId().intValue());
     	Assert.assertEquals("mkyong", user.getName());
-    	Assert.assertEquals("mkyong@gmail.com", user.getEmail());
+    	Assert.assertEquals("mkyong@gmail.com", user.getCategory());
 
     }
 
