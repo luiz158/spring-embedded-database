@@ -9,5 +9,9 @@ public interface ProductDao {
 	ProductCatalogue findByName(String name);
 	
 	List<ProductCatalogue> findAll();
+	
+	void add(ProductCatalogue product);
+	
+	void remove(String id);
 
 }
