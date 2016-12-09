@@ -71,21 +71,21 @@ public class ProductDaoImpl implements ProductDao {
 	@Override
 	public void add(ProductCatalogue product) {
 		
-		String SQL = "INSERT INTO product_catalogue (id,name,category,price) VALUES (:id, :name, :catagory,:price)";
-	      Map namedParameters = new HashMap();   
+		String SQL = "INSERT INTO product_catalogue VALUES (:id, :name, :catagory, :price)";
+	      Map<String, Object> namedParameters = new HashMap<>();   
 	      if(null!=product.getProductId())
 	      {
 	    	  namedParameters.put("id", product.getProductId());   
 	      }
-	      else if(null!=product.getProductName())
+	      if(null!=product.getProductName())
 	      {
 	    	  namedParameters.put("name", product.getProductName());
 	      }
-	      else if(null!=product.getProductType())
+	      if(null!=product.getProductType())
 	      {
 	    	  namedParameters.put("catagory", product.getProductType());
 	      }
-	      else if(null!=product.getPrice())
+	      if(null!=product.getPrice())
 	      {
 	    	  namedParameters.put("price", product.getPrice());
 	      }
